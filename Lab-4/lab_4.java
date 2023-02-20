@@ -17,7 +17,7 @@ public class lab_4{
         return acc_bal;
     }
 
-    static float Deposite(){
+    static float Deposit(){
         System.out.print("\nEnter the ammount you want to deposite to your account: ");
         float depo_bal = Float.parseFloat(sc.nextLine());
         acc_bal = (acc_bal + depo_bal);
@@ -54,11 +54,11 @@ public class lab_4{
             ini_acc_bal = acc_bal;
             System.out.println("\n**********************************************************");
             System.out.print("Menu:\n1. Deposite\n2. for Withdraw\n3. for Print the Transaction history\n4. for Print the account Summary\nExit.\n\nEnter your choice: ");
-            int choice = sc.nextInt();
+            int choice = Integer.parseInt(sc.nextLine());
             System.out.println("\n**********************************************************");
             switch(choice){
                 case 1:
-                    Deposite();
+                    Deposit();
                     System.out.println("\n**********************************************************");
                     break;
                 case 2:
