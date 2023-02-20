@@ -1,11 +1,14 @@
-import java.time.*;
+import java.time.LocalDateTime;
 import java.util.*;
+import java.time.format.DateTimeFormatter;      
 
 public class lab_4{
     static Scanner sc = new Scanner(System.in);
     static int acc_no;
     static String h_Name;
     static float acc_bal;
+    static String[][] tran = new String[100][4];
+    static int iter = 0;
     
     static float Initialize(){
         System.out.print("You are logged In.\nEnter the account number: ");
@@ -18,10 +21,22 @@ public class lab_4{
     }
 
     static float Deposit(){
-        System.out.print("\nEnter the ammount you want to deposite to your account: ");
+        System.out.print("\nEnter the ammount you want to deposit to your account: ");
         float depo_bal = Float.parseFloat(sc.nextLine());
         acc_bal = (acc_bal + depo_bal);
         System.out.print("\nThe amount "+depo_bal+" is credited to your account.\t||\tYour current balace is: "+acc_bal);
+        // String D_t = Transactions();
+        
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();
+        
+        iter++;
+        
+        tran[iter][0]="Deposit";   // Deposit OR Withdraw
+        tran[iter][1]=""+depo_bal; // Deposit Ammount
+        tran[iter][2]=""+acc_bal;  // Balance
+        tran[iter][3]=""+dt.format(now);   // date-time
+        
         return acc_bal;
     }
 
@@ -31,14 +46,37 @@ public class lab_4{
         if(widr_bal<=acc_bal){
             acc_bal = (acc_bal - widr_bal);
             System.out.print("\nThe amount "+widr_bal+" is debited to your account.\t||\tYour current balace is: "+acc_bal);
+            // String W_t = Transactions();
         }
         else {System.out.println("\nYour account has insufficient balance.");}
+
+
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();
+        
+        iter++;
+        
+        tran[iter][0]="Withdraw";   // Deposit OR Withdraw
+        tran[iter][1]=""+widr_bal; // Deposit Ammount
+        tran[iter][2]=""+acc_bal;  // Balance
+        tran[iter][3]=""+dt.format(now);   // date-time
+
+
         return acc_bal;
     }
 
     static void Transactions(float bal){
         System.out.println("Transaction Details:");
         System.out.println("Your current account balance is: "+acc_bal);
+        System.out.println("Transaction Amount      Balance     Date       Time");
+        for(String[] s: tran){
+            if(s[0]==null){
+                continue;
+            }else{
+                System.out.printf("%-12s"+"%-12s"+"%-12s"+"%s\n",s[0],s[1],s[2],s[3]);
+            }
+        }
+        
     }
 
     static void Summary(){
@@ -53,7 +91,7 @@ public class lab_4{
         do{
             ini_acc_bal = acc_bal;
             System.out.println("\n**********************************************************");
-            System.out.print("Menu:\n1. Deposite\n2. for Withdraw\n3. for Print the Transaction history\n4. for Print the account Summary\nExit.\n\nEnter your choice: ");
+            System.out.print("Menu:\n1. Deposit\n2. Withdraw\n3. Print Transaction History\n4. Print Account Summary\nExit.\n\nEnter your choice: ");
             int choice = Integer.parseInt(sc.nextLine());
             System.out.println("\n**********************************************************");
             switch(choice){
