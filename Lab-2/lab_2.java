@@ -1,70 +1,101 @@
 import java.util.Scanner;
-import java.util.Arrays;
-
 
 public class lab_2 {
+    static String[] names = new String[1024];
+    static int count = 0;
+
     public static void main(String[] args) {
-
-        Scanner scan = new Scanner(System.in);
-        int ch;
-
-        String name_list[] = new String[1024];
-
-        String name, S_name, D_name;
+        Scanner sc = new Scanner(System.in);
+        int option;
 
         do {
-            System.out.print("\n***Welcome*** \n'1' is for Inputing a name. \n'2' is for Searching a name. \n'3' is for Deleting a name. \nEnter your choice: ");
-            ch = Integer.parseInt(scan.nextLine());
+            System.out.println("1. Enter a name");
+            System.out.println("2. Search for a name");
+            System.out.println("3. Remove a name");
+            System.out.println("4. Exit");
+            System.out.print("Enter an option: ");
 
-            switch(ch){
+            option = sc.nextInt();
+
+            switch (option) {
                 case 1:
-                    System.out.print("\nEnter the name you want to add: ");
-                    name = scan.nextLine();
-                    for(int i=0; i<1024; i++){
-                        if(name_list[i] == name){
-                            System.out.print("\nThe namne is already there in the list!");
-                            break;
-                        }
-                        else {
-                            name_list[i] = name;
-                            System.out.print("\nThe new name is added to the list.");
-                            // return name_list;
-                            break;
-                        }
-                    }
+                    addName(sc);
                     break;
                 case 2:
-                    System.out.print("\nEnter the name you want to search: ");
-                    S_name = scan.nextLine();
-                    for(int i=0; i<1024; i++){
-                        if(name_list[i] == S_name){
-                            System.out.print("\nThe name is in the list.");
-                            break;
-                        }
-                        else{
-                            System.out.print("\nSorry! the name is not in the list.");
-                            break;
-                        }
-                    }
+                    searchName(sc);
+                    break;
                 case 3:
-                    System.out.print("\nEnter the name you want to delete: ");
-                    D_name = scan.nextLine();
-                    for(int i=0; i<1023; i++){
-                        if(name_list[i] == D_name){
-                            name_list[i] = name_list[i+1];
-                            System.out.print("\nThe name is deleted from the list.");
-                            break;
-                        }
-                    }
+                    removeName(sc);
+                    break;
+                case 4:
                     break;
                 default:
-                    System.out.print("\nSorry! You entered wrong input. \n*Exit*");
-                    break; 
-                }
-            System.out.println("\n************************************************\nThe list of the names is: " + Arrays.toString(name_list));
+                    System.out.println("Invalid option. Try again.");
             }
-        while ( ch == 1 || ch == 2 || ch == 3);
-        System.out.println("\n************************************************\nThe list of the names is: " + Arrays.toString(name_list));
-        scan.close();
+        } while (option != 4);
+
+        sc.close();
+    }
+
+    public static void addName(Scanner sc) {
+        System.out.print("Enter a name: ");
+        String name = sc.next();
+
+        if (count == 1024) {
+            System.out.println("Array is full. Can't add more names.");
+            return;
+        }
+
+        for (int i = 0; i < count; i++) {
+            if (names[i].equalsIgnoreCase(name)) {
+                System.out.println("Name already exists. Try a different name.");
+                return;
+            }
+        }
+
+        names[count++] = name;
+        System.out.println("Name added successfully.");
+    }
+
+    public static void searchName(Scanner sc) {
+        System.out.print("Enter a name to search: ");
+        String name = sc.next();
+
+        int index = -1;
+        for (int i = 0; i < count; i++) {
+            if (names[i].equalsIgnoreCase(name)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("Name not found.");
+        } else {
+            System.out.println("Name found at index " + index);
+        }
+    }
+
+    public static void removeName(Scanner sc) {
+        System.out.print("Enter a name to remove: ");
+        String name = sc.next();
+
+        int index = -1;
+        for (int i = 0; i < count; i++) {
+            if (names[i].equalsIgnoreCase(name)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("Name not found.");
+        } else {
+            for (int i = index; i < count - 1; i++) {
+                names[i] = names[i + 1];
+            }
+            count--;
+            System.out.println("Name removed successfully.");
+        }
     }
 }
