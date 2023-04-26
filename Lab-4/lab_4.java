@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
-import java.util.*;
-import java.time.format.DateTimeFormatter;      
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class lab_4{
     static Scanner sc = new Scanner(System.in);
