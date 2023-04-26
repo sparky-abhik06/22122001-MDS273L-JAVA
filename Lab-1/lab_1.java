@@ -13,6 +13,7 @@ public class lab_1 {
         String State = scan.nextLine();
         System.out.print("Enter the company name: ");
         String Company = scan.nextLine();
+        scan.close();
         System.out.println("************************************************************");
         System.out.println("Employee Details: { Name: '" + Name + "', Age: '" + Age + "', Gender: '" + Sex + "', State: '" + State + "', Company: '"+ Company + "'}");
 

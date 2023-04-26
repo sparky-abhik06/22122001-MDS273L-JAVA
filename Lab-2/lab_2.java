@@ -65,5 +65,6 @@ public class lab_2 {
             }
         while ( ch == 1 || ch == 2 || ch == 3);
         System.out.println("\n************************************************\nThe list of the names is: " + Arrays.toString(name_list));
+        scan.close();
     }
 }

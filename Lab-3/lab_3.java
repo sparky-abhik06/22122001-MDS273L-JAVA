@@ -1,6 +1,6 @@
 import java.util.*;
 
-import javax.sound.sampled.SourceDataLine;
+// import javax.sound.sampled.SourceDataLine;
 
 public class lab_3 {
     static Scanner scan = new Scanner(System.in);
