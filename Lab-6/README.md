@@ -33,4 +33,4 @@
 * Create a flowchart using the online tool and update the README.md file.
 * Update the changes to the GitHub website and submit the URL.
 
-![lab6flowchart](lab6flowchart.jpg "lab6flowchart")
+(["lab6flowchart"](https://drive.google.com/file/d/1c_N5TgfBg78_hlr0k_Sr4sDBI_W1AVdR/view?usp=share_link))
