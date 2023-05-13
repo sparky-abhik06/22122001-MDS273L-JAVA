@@ -1,4 +1,4 @@
-You are supposed to create a menu-driven program that has the following menu options:
+# You are supposed to create a menu-driven program that has the following menu options:
 1. Enter a name
 2. Search for a name
 3. Remove a name
@@ -10,3 +10,5 @@ Constraints:
 3. Provide necessary validations that the user enters only valid names that are not going to be repeated.
 4. Removing a name should not create empty space inside the array!
 5. Format your results properly!!
+
+![lab2FlowChart](lab2FlowChart.jpg "lab2FlowChart")

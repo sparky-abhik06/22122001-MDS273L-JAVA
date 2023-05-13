@@ -6,3 +6,5 @@
 * Once the overall summary statistics have been calculated, identify the summary statistics for each Species of iris flower ***[Iris-setosa, Iris-versicolor, Iris-virginica]***.
 
 Present your results in the appropriate format and write the results in a file.
+
+![lab7FlowChart](lab7FlowChart.jpg "lab7FlowChart")
