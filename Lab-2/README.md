@@ -11,4 +11,4 @@ Constraints:
 4. Removing a name should not create empty space inside the array!
 5. Format your results properly!!
 
-![lab2FlowChart](https://drive.google.com/file/d/1un0rk4SK1lyyOI1sfIM0dwYX3XNbEDvf/view?usp=share_link)
+(["lab2FlowChart"](https://drive.google.com/file/d/1un0rk4SK1lyyOI1sfIM0dwYX3XNbEDvf/view?usp=share_link))
